@@ -1,52 +1,74 @@
-﻿# Exemplo 2 - Acelerometro
+﻿# exemplo 2 acelerometro
 
-Esta branch mostra como ler o acelerometro e calcular magnitude do movimento.
+Branch: exemplo-2-acelerometro
 
-## O que este exemplo demonstra
+## Visao geral
 
-- leitura dos eixos X, Y e Z;
-- calculo da magnitude total do vetor;
-- verificacao de disponibilidade;
-- ciclo completo de subscribe/unsubscribe.
+Leitura de aceleracao nos eixos x, y e z com calculo de magnitude total.
 
-## Conceito rapido
+## Objetivo didatico
 
-O acelerometro mede aceleracao, incluindo efeito da gravidade, em tres eixos.
+Esta branch foi organizada para estudo isolado do tema principal, com codigo comentado e foco em clareza de funcionamento.
 
-## Arquivo principal
+## O que esta implementado
 
-- App.tsx
+- Tela principal em App.tsx
+- Leitura/controle do sensor relacionado ao tema da branch
+- Estados de carregamento e indisponibilidade quando aplicavel
+- Cleanup de listeners para evitar vazamento de recursos
+
+## Stack tecnica
+
+- Expo SDK 54
+- React Native
+- TypeScript
+- Bibliotecas Expo de sensores e sistema conforme o tema
 
 ## Como executar
 
-```bash
+1. Trocar para a branch:
+
+`ash
+git checkout exemplo-2-acelerometro
+`
+
+2. Instalar dependencias:
+
+`ash
 npm install
+`
+
+3. Iniciar projeto:
+
+`ash
 npm start
-```
+`
 
-Teste em aparelho real, movimentando e inclinando o celular.
+4. Rodar no dispositivo:
+- Expo Go no celular (recomendado)
+- Android emulator/iOS simulator com limitacoes de sensores
 
-## Formula usada
+## Roteiro de validacao
 
-A magnitude e calculada por:
+1. Abrir a tela do exemplo
+2. Interagir fisicamente com o dispositivo quando necessario
+3. Verificar se os dados mudam conforme esperado
+4. Confirmar comportamento de erro/indisponibilidade
 
-magnitude = sqrt(x^2 + y^2 + z^2)
+## Decisoes de implementacao
 
-## Comportamento esperado
+- Uso de hooks do React para manter logica previsivel
+- Separacao clara entre leitura inicial e assinatura em tempo real
+- Limpeza explicita no retorno do useEffect
+- Tipagem forte para reduzir erros de integracao
 
-- os eixos mudam conforme orientacao e movimento;
-- magnitude varia com intensidade do deslocamento;
-- mensagem de indisponibilidade aparece em aparelhos sem suporte.
+## Observacoes
 
-## Por que esta abordagem foi escolhida
+- Sensores podem variar por fabricante/dispositivo.
+- Pedometro e sensores de movimento funcionam melhor em hardware real.
+- Algumas leituras podem ter latencia ou filtragem do sistema operacional.
 
-1. combinar eixos com magnitude melhora interpretacao dos dados;
-2. update interval controlado evita ruido excessivo na UI;
-3. estado unico por leitura simplifica renderizacao;
-4. cleanup garante estabilidade em navegacao/troca de tela.
+## Branches relacionadas
 
-## Testes recomendados
-
-- aparelho parado sobre mesa (valor mais estavel);
-- movimentos bruscos para observar picos;
-- rotacao de orientacao para validar mudancas nos eixos.
+- master: base do projeto
+- menu-6-exemplos-sensores: versao integrada com menu unico
