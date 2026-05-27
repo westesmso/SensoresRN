@@ -28,21 +28,21 @@ Esta branch foi organizada para estudo isolado do tema principal, com codigo com
 
 1. Trocar para a branch:
 
-`ash
+```bash
 git checkout exemplo-1-giroscopio
-`
+```
 
 2. Instalar dependencias:
 
-`ash
+```bash
 npm install
-`
+```
 
 3. Iniciar projeto:
 
-`ash
+```bash
 npm start
-`
+```
 
 4. Rodar no dispositivo:
 - Expo Go no celular (recomendado)
