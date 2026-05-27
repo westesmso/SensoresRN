@@ -1,48 +1,74 @@
-﻿# Exemplo 3 - Pedometro
+﻿# exemplo 3 pedometro
 
-Esta branch implementa leitura de passos em tempo real e consulta historica de 24h.
+Branch: exemplo-3-pedometro
 
-## O que este exemplo demonstra
+## Visao geral
 
-- disponibilidade do pedometro;
-- leitura historica com intervalo de tempo;
-- contagem ao vivo com watchStepCount;
-- tratamento de erros em acesso ao sensor.
+Contagem de passos ao vivo e consulta de passos acumulados nas ultimas 24h.
 
-## Arquivo principal
+## Objetivo didatico
 
-- App.tsx
+Esta branch foi organizada para estudo isolado do tema principal, com codigo comentado e foco em clareza de funcionamento.
+
+## O que esta implementado
+
+- Tela principal em App.tsx
+- Leitura/controle do sensor relacionado ao tema da branch
+- Estados de carregamento e indisponibilidade quando aplicavel
+- Cleanup de listeners para evitar vazamento de recursos
+
+## Stack tecnica
+
+- Expo SDK 54
+- React Native
+- TypeScript
+- Bibliotecas Expo de sensores e sistema conforme o tema
 
 ## Como executar
 
+1. Trocar para a branch:
+
+```bash
+git checkout exemplo-3-pedometro
+```
+
+2. Instalar dependencias:
+
 ```bash
 npm install
+```
+
+3. Iniciar projeto:
+
+```bash
 npm start
 ```
 
-Use dispositivo real e caminhe alguns metros para validar a contagem.
+4. Rodar no dispositivo:
+- Expo Go no celular (recomendado)
+- Android emulator/iOS simulator com limitacoes de sensores
 
-## Comportamento esperado
+## Roteiro de validacao
 
-- exibe "passos desde abertura" em tempo real;
-- exibe "passos ultimas 24h" com consulta inicial;
-- mostra mensagem quando o sensor nao esta disponivel;
-- evita crash em falhas de permissao/sistema.
+1. Abrir a tela do exemplo
+2. Interagir fisicamente com o dispositivo quando necessario
+3. Verificar se os dados mudam conforme esperado
+4. Confirmar comportamento de erro/indisponibilidade
 
-## Por que esta abordagem foi escolhida
+## Decisoes de implementacao
 
-1. separacao entre historico e ao vivo melhora entendimento didatico;
-2. watchStepCount fornece feedback imediato ao usuario;
-3. getStepCountAsync permite contextualizar atividade diaria;
-4. try/catch protege o app em ambientes com suporte parcial.
-
-## Testes recomendados
-
-- abrir app parado e observar valores iniciais;
-- caminhar por 30-50 passos e conferir incremento;
-- reabrir app e comparar historico com leitura ao vivo.
+- Uso de hooks do React para manter logica previsivel
+- Separacao clara entre leitura inicial e assinatura em tempo real
+- Limpeza explicita no retorno do useEffect
+- Tipagem forte para reduzir erros de integracao
 
 ## Observacoes
 
-- alguns aparelhos exigem permissao de atividade fisica;
-- em simuladores o resultado costuma ser limitado ou inexistente.
+- Sensores podem variar por fabricante/dispositivo.
+- Pedometro e sensores de movimento funcionam melhor em hardware real.
+- Algumas leituras podem ter latencia ou filtragem do sistema operacional.
+
+## Branches relacionadas
+
+- master: base do projeto
+- menu-6-exemplos-sensores: versao integrada com menu unico
