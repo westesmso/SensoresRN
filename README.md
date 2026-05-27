@@ -1,51 +1,52 @@
-﻿# Sensores RN - Base do Projeto
+﻿# SensoresRN
 
-Este repositorio contem exemplos de sensores para React Native com Expo SDK 54.
+Repositorio da aula 29 (Sensores) com exemplos em React Native usando Expo SDK 54.
 
-A branch master foi mantida como base limpa do projeto, com dependencias instaladas e pronta para servir de ponto de partida para os exemplos separados.
+## Objetivo
+
+Esta branch contem a base do projeto, dependencias, configuracoes e ponto de partida para os exemplos.
 
 ## Tecnologias
 
 - Expo SDK 54
-- React Native 0.81
-- TypeScript
+- React Native 0.81.5
+- React 19.1.0
+- TypeScript 5.9.2
 - expo-sensors
 - expo-battery
 - expo-screen-orientation
 
-## Objetivo desta branch
+## Estrutura
 
-A branch master existe para:
-
-1. manter a estrutura inicial do app organizada;
-2. centralizar dependencias usadas por todas as outras branches;
-3. facilitar criacao de novas branches sem conflitos;
-4. servir como referencia para comparacao entre exemplos.
-
-## Estrutura principal
-
-- App.tsx: app base
-- index.ts: entrypoint do Expo
-- package.json: scripts e dependencias
-- tsconfig.json: configuracao TypeScript
+- App.tsx: tela principal
+- index.ts: bootstrap do app
+- app.json: configuracoes do Expo
+- assets/: icones e splash
 
 ## Como executar
 
-1. Instale as dependencias:
+1. Instalar dependencias:
 
 ```bash
 npm install
 ```
 
-2. Inicie o Expo:
+2. Iniciar o projeto:
 
 ```bash
 npm start
 ```
 
-3. Abra no Expo Go (Android/iOS) para testes reais de sensores.
+3. Abrir no dispositivo:
+- Android: tecla `a` no terminal do Expo
+- iOS: tecla `i` (em ambiente compativel)
+- Expo Go: escanear QR code
 
-## Branches de exemplos
+## Sobre os exemplos
+
+Cada exemplo foi colocado em uma branch dedicada para facilitar estudo, comparacao e avaliacao.
+
+Branches de exemplo:
 
 - exemplo-1-giroscopio
 - exemplo-2-acelerometro
@@ -55,19 +56,15 @@ npm start
 - exemplo-6-rotacao-tela
 - menu-6-exemplos-sensores
 
+## Boas praticas usadas
+
+- Verificacao de disponibilidade de sensor antes de uso
+- Limpeza de listeners no unmount para evitar leak
+- Tratamento visual para estados de carregamento/erro
+- Tipagem forte com TypeScript
+
 ## Observacoes importantes
 
-- Sensores geralmente nao funcionam em emulador com a mesma fidelidade do dispositivo real.
-- Para pedometro e alguns sensores fisicos, prefira testar em aparelho real.
-- A versao web nao representa comportamento completo dos sensores nativos.
-
-## Fluxo recomendado de estudo
-
-1. Comece pela branch exemplo-1-giroscopio.
-2. Siga para acelerometro e pedometro.
-3. Depois veja bateria, magnetometro e rotacao.
-4. Finalize com menu-6-exemplos-sensores para visualizar tudo em um app unico.
-
-## Licenca
-
-Uso educacional.
+- Alguns sensores podem nao estar disponiveis em emuladores.
+- Para melhor resultado, use dispositivo fisico.
+- O pedometro exige movimento real para atualizar valores.
