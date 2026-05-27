@@ -1,52 +1,74 @@
-﻿# Exemplo 1 - Giroscopio
+﻿# exemplo 1 giroscopio
 
-Esta branch contem um exemplo focado no sensor de giroscopio usando Expo.
+Branch: exemplo-1-giroscopio
 
-## O que este exemplo demonstra
+## Visao geral
 
-- verificacao de disponibilidade do sensor;
-- assinatura de eventos em tempo real;
-- exibicao dos eixos X, Y e Z;
-- limpeza correta de listener no unmount.
+Leitura de velocidade angular nos eixos x, y e z usando Gyroscope.
 
-## Conceito rapido
+## Objetivo didatico
 
-O giroscopio mede velocidade angular, ou seja, o quanto o aparelho esta girando em torno de cada eixo.
+Esta branch foi organizada para estudo isolado do tema principal, com codigo comentado e foco em clareza de funcionamento.
 
-## Arquivo principal
+## O que esta implementado
 
-- App.tsx
+- Tela principal em App.tsx
+- Leitura/controle do sensor relacionado ao tema da branch
+- Estados de carregamento e indisponibilidade quando aplicavel
+- Cleanup de listeners para evitar vazamento de recursos
+
+## Stack tecnica
+
+- Expo SDK 54
+- React Native
+- TypeScript
+- Bibliotecas Expo de sensores e sistema conforme o tema
 
 ## Como executar
 
-```bash
+1. Trocar para a branch:
+
+`ash
+git checkout exemplo-1-giroscopio
+`
+
+2. Instalar dependencias:
+
+`ash
 npm install
+`
+
+3. Iniciar projeto:
+
+`ash
 npm start
-```
+`
 
-Abra o app no celular e mova o aparelho para ver as variacoes.
+4. Rodar no dispositivo:
+- Expo Go no celular (recomendado)
+- Android emulator/iOS simulator com limitacoes de sensores
 
-## Comportamento esperado
+## Roteiro de validacao
 
-- ao abrir, o app verifica se o sensor existe;
-- se existir, inicia leitura periodica;
-- a tela mostra valores com 3 casas decimais;
-- ao fechar/sair da tela, o listener e removido.
+1. Abrir a tela do exemplo
+2. Interagir fisicamente com o dispositivo quando necessario
+3. Verificar se os dados mudam conforme esperado
+4. Confirmar comportamento de erro/indisponibilidade
 
-## Por que esta abordagem foi escolhida
+## Decisoes de implementacao
 
-1. useEffect com dependencia vazia inicia o sensor apenas uma vez;
-2. addListener atualiza estado de forma reativa;
-3. remove no cleanup evita vazamento de memoria;
-4. estado de disponibilidade melhora UX em aparelhos sem sensor.
+- Uso de hooks do React para manter logica previsivel
+- Separacao clara entre leitura inicial e assinatura em tempo real
+- Limpeza explicita no retorno do useEffect
+- Tipagem forte para reduzir erros de integracao
 
-## Testes recomendados
+## Observacoes
 
-- gire o celular lentamente e observe mudanca gradual;
-- gire rapidamente e veja picos maiores;
-- teste em aparelho sem sensor (se houver) para validar fallback.
+- Sensores podem variar por fabricante/dispositivo.
+- Pedometro e sensores de movimento funcionam melhor em hardware real.
+- Algumas leituras podem ter latencia ou filtragem do sistema operacional.
 
-## Limitacoes
+## Branches relacionadas
 
-- emulador pode nao refletir leitura real;
-- variacao de hardware entre fabricantes pode alterar sensibilidade.
+- master: base do projeto
+- menu-6-exemplos-sensores: versao integrada com menu unico
